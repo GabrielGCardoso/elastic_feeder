@@ -1,10 +1,11 @@
 import json
 import unittest2
+import os
 
 class TestJsonMethods(unittest2.TestCase):
 
     def test_json(self):
-        with open('../config.json') as json_file:
+        with open(os.path.join(os.path.dirname(__file__), '../config.json')) as json_file:
             
             data = json.load(json_file)
             self.assertTrue(len(str(data["database"]["host"])) > 0)
